@@ -4,37 +4,21 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 11</title>
-    <link
-      rel="stylesheet"
-      href="node_modules/izitoast/dist/css/iziToast.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="node_modules/simplelightbox/dist/simplelightbox.min.css"
-    />
+    <title>goit-js-hw-11</title>
+
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <div class="search-container">
-      <form id="search-form">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Enter your search query..."
-        />
-        <button type="submit">Search</button>
-      </form>
-      <div class="loader"></div>
-      <!-- Індикатор завантаження -->
-    </div>
+    <form class="btn-section" autocomplete="off">
+      <input type="text" id="data-search" />
+      <button type="submit" data-start>Search</button>
+    </form>
 
-    <div class="gallery"></div>
+    <ul class="gallery"></ul>
 
-    <!-- Підключення скриптів бібліотек -->
-    <script src="node_modules/izitoast/dist/js/iziToast.min.js"></script>
-    <script src="node_modules/simplelightbox/dist/simple-lightbox.min.js"></script>
-    <!-- Власний JavaScript -->
-    <script src="./js/script.js"></script>
+    <script type="module" src="./js/render-functions.js"></script>
+    <script type="module" src="./js/pixabay-api.js"></script>
+    <script type="module" src="./main.js"></script>
+    
   </body>
 </html>
