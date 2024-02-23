@@ -2,23 +2,42 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>goit-js-hw-11</title>
-
-    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Image Search App</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/simplelightbox@2.7.0/dist/simple-lightbox.min.css"
+    />
   </head>
   <body>
-    <form class="btn-section" autocomplete="off">
-      <input type="text" id="data-search" />
-      <button type="submit" data-start>Search</button>
-    </form>
+    <div class="container">
+      <form id="searchForm">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Enter your search term"
+        />
+        <button type="submit">Search</button>
+      </form>
+      <div id="loader" class="loader"></div>
+      <div id="gallery" class="gallery"></div>
+    </div>
 
-    <ul class="gallery"></ul>
-
-    <script type="module" src="./js/render-functions.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"
+    ></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/simplelightbox@2.7.0/dist/simple-lightbox.min.js"
+    ></script>
     <script type="module" src="./js/pixabay-api.js"></script>
+    <script type="module" src="./js/render-functions.js"></script>
     <script type="module" src="./main.js"></script>
-    
   </body>
 </html>

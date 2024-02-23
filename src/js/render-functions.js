@@ -1,28 +1,38 @@
-export function createMarkup(images) {
+import iziToast from "izitoast";
+import SimpleLightbox from "simplelightbox";
+import "izitoast/dist/css/iziToast.min.css";
+import "simplelightbox/dist/simple-lightbox.min.css";
 
-    const gallery = document.querySelector('.gallery');
-    
-    gallery.innerHTML = images
-    .map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => 
-    `<li class="gallery-item">
-      <a href="${largeImageURL}" class="gallery-link" data-lightbox="gallery">
-        <img class="gallery-image"
-         src="${webformatURL}"
-         alt="${tags}"/>
-         <div class="gallery-text">
-        <p>Likes: ${likes}</p>
-        <p>Views: ${views}</p>
-        <p>Comments: ${comments}</p>
-        <p>Downloads: ${downloads}</p>
-        </div>
-      </a>
-    </li>`
-    )
-      .join('');
+const loader = document.getElementById('loader');
+const gallery = document.getElementById('gallery');
+const lightbox = new SimpleLightbox('.gallery a');
 
-      if (window.simpleLightbox) {
-        window.simpleLightbox.refresh();
-      }
+export function renderGallery(images) {
+    loader.style.display = 'none';
 
-        }
- 
+    if (images.length === 0) {
+        iziToast.info({
+            title: 'Info',
+            message: 'Sorry, there are no images matching your search query. Please try again!'
+        });
+        return;
+    }
+
+    images.forEach(image => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+            <a href="${image.largeImageURL}" data-lightbox="gallery">
+                <img src="${image.webformatURL}" alt="${image.tags}">
+            </a>
+            <p>Likes: ${image.likes}</p>
+            <p>Views: ${image.views}</p>
+            <p>Comments: ${image.comments}</p>
+            <p>Downloads: ${image.downloads}</p>
+        `;
+        gallery.appendChild(card);
+    });
+
+    // Refresh the lightbox 
+    lightbox.refresh();
+}

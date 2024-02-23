@@ -4,36 +4,4 @@
   | default @import url()
   |============================
 */
-/* @import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css'); */
-
-img{
-  /* width: 360px;
-  height: 300px; */
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 24px;
-}
-.btn-section{
-margin-bottom: 24px;
-margin-top: 50px;
-display: flex;
-justify-content: center;
-}
-.gallery{
- margin-top: 8px;
- display: flex;
- flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    gap: 24px;
-}
-
-.gallery-text{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
+@import url('./reset.css');
